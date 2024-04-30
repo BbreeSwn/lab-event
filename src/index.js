@@ -4,18 +4,22 @@ import './index.css'
 
 
 function App() {
+//state refactor
+const [userData , setUserData] = React.useState({
+    username: 'a',
+    password: 'b',
+    confirm: 'c',
+})
+
     //state 
     const [isSubmit, setIsSubmit] = React.useState('false')
 
-    const [username, setUsername] = React.useState('');
     const [errorUserName, setErrorUserName] = React.useState(false);
     const [errorUserNameText, setErrorUserNameText] = React.useState('')
 
-    const [password, setPassword] = React.useState('');
     const [errorPassword, setErrorPassword] = React.useState(false);
     const [errorPasswordText, setErrorPasswordText] = React.useState('')
 
-    const [confirm, setConfirm] = React.useState('');
     const [errorConfirm, setErrorConfirm] = React.useState(false);
     const [errorConfirmText, setErrorConfirmText] = React.useState('')
 
@@ -30,7 +34,8 @@ function App() {
     //handle
     const handleChangeUserName = (event) => {
         setIsSubmit(false)
-        setUsername(event.target.value)
+        setUserData({...userData, username: event.target.value})
+        // setUsername(event.target.value)
         if (errorUserName)
             setErrorUserName(false)
         setErrorUserNameText('')
@@ -38,7 +43,8 @@ function App() {
 
     const handleChangePassword = (event) => {
         setIsSubmit(false)
-        setPassword(event.target.value)
+        setUserData({...userData, password: event.target.value})
+        // setPassword(event.target.value)
         if (errorPassword)
             setErrorPassword(false)
         setErrorPasswordText('')
@@ -46,13 +52,13 @@ function App() {
 
     const handleChangeConfirmPassword = (event) => {
         setIsSubmit(false)
-        setConfirm(event.target.value)
+        // setConfirm(event.target.value)
+        setUserData({...userData , confirm: event.target.value})
         if (errorConfirm)
             setErrorConfirm(false)
         setErrorConfirmText('')
     };
-
-
+const {username ,password ,confirm} = userData;
 
     //validation
     const handleSubmit = (event) => {
@@ -90,17 +96,17 @@ function App() {
                 <h2>Register Form</h2>
                 <div className='form_input'>
                     <label>username</label>
-                    <input className={(errorUserName && 'input_error') || (isSubmit && 'input_success')} onChange={handleChangeUserName} value={username} type='text' />
+                    <input className={(errorUserName && 'input_error') || (isSubmit && 'input_success')} onChange={handleChangeUserName} value={userData?.username || ''} type='text' />
                     {errorUserName && <p className='text_error'>{errorUserNameText}</p>}
                 </div>
                 <div className='form_input'>
                     <label>password</label>
-                    <input className={(errorPassword && 'input_error') || (isSubmit && 'input_success')} onChange={handleChangePassword} value={password} type='password' />
+                    <input className={(errorPassword && 'input_error') || (isSubmit && 'input_success')} onChange={handleChangePassword} value={userData?.password || ''} type='password' />
                     {errorPassword && <p className='text_error'>{errorPasswordText}</p>}
                 </div>
                 <div className='form_input' >
                     <label>confirm password</label>
-                    <input className={(errorConfirm && 'input_error') || (isSubmit && 'input_success')} onChange={handleChangeConfirmPassword} type='password' />
+                    <input className={(errorConfirm && 'input_error') || (isSubmit && 'input_success')} onChange={handleChangeConfirmPassword} value={userData?.confirm} type='password' />
                     {errorConfirm && <p className='text_error'>{errorConfirmText}</p>}
                 </div>
                 <button>Submit</button>
