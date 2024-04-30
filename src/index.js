@@ -2,21 +2,22 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 
 
-function App (){
-
-    const handleRedirect = (event) => {
-    const ans =  window.confirm("redirect to google");
-    if(ans === true) {
-window.location.replace('google.com')
-    }
+function App() {
+    const [isShow , setIsShow] = React.useState('true')
+    const handleClick = (event) => {
+        console.log('Click');
     };
-    return <a onClick={handleRedirect}>Google</a>
+    const isShow = true;
+    return
+    <>
+        {isShow ? <button onClick={handleClick} >Click to hide me</button> : null};
+    </>
 
 }
 
-    // //render
-    const root = ReactDOM.createRoot(document.getElementById('root'));
-    root.render(<App />);
+// //render
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(<App />);
 
 
 
