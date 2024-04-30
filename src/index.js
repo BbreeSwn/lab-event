@@ -3,17 +3,20 @@ import ReactDOM from 'react-dom/client';
 
 
 function App() {
-    const [isShow , setIsShow] = React.useState('');
-    const handleClick = (event) => {
-        console.log('Click');
-        setIsShow('false');
+    const [isShow , setIsShow] = React.useState('false');
+    const handleClick = () => {
+        console.log('Clicked')
+        setIsShow(!isShow)
     };
-    // const IsShow = true;
-    return
-    <>
-    <button onClick={handleClick} >Click to hide me</button>
-    {IsShow && <h2>Text</h2>}
-    </>
+    const isShowBtn = true;
+
+const isShowText = true;
+    return (
+        <>
+            <button onClick={handleClick}>{isShow ? 'Hide' : 'Show'} </button>
+            <h2>Text</h2>
+        </>
+    );
 
 }
 
