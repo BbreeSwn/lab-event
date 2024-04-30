@@ -3,24 +3,14 @@ import ReactDOM from 'react-dom/client';
 
 
 function App (){
-    const handleCheck = (event) => {
-        console.log(event.target.name)
-        console.log(event.target.name)
-        console.log(event.target.value)
+
+    const handleRedirect = (event) => {
+    const ans =  window.confirm("redirect to google");
+    if(ans === true) {
+window.location.replace('google.com')
     }
-    return (
-        <>
-            <input type='checkbox' name="phonebrand" id='phone-1' value='Sumsung' onChange={handleCheck} />
-            <label htmlFor='phone-1'>Samsung</label>
-            <input type='checkbox' name="phonebrand" id='phone-2' value='Nokia' onChange={handleCheck} />
-            <label htmlFor='phone-2'>Nokia</label>
-            <input type='checkbox' name="phonebrand" id='phone-3' value='Huawei' onChange={handleCheck} />
-            <label htmlFor='phone-3'>Huawei</label>
-            <input type='checkbox' name="phonebrand" id='phone-4' value='Iphone' onChange={handleCheck} />
-            <label htmlFor='phone-4'>Iphone</label>
-            
-        </>
-    )
+    };
+    return <a onClick={handleRedirect}>Google</a>
 
 }
 
