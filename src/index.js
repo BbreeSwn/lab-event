@@ -2,29 +2,23 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 
 
-
-
 function App (){
-    const [inputName , setInputName] = React.useState('');
-    const inputName = (event) => {
-            console.log(event.target.value);
-            setInputName(event.target.value);
-          };
-    return (
-        <>
-        <input
-        type='text'
-        value='inputName'></input>
-        </>
-    )
+    const handleSelect = (event) => {
+        console.log(event.taget.value);
+    };
 }
+return (
+    <select>
+        <option value=""></option>
+        <option value=""></option>
+        <option value=""></option>
+        <option value=""></option>
+    </select>
+)
 
-
-//render
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(<App />);
-
-
+    // //render
+    const root = ReactDOM.createRoot(document.getElementById('root'));
+    root.render(<App />);
 
 
 
