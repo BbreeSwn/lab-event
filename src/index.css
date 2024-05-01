@@ -1,63 +1,73 @@
+* {
+  padding: 0;
+  margin: 0;
+}
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu',
+    'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+}
+
+li {
+  list-style: none;
 }
 
 .app {
   display: flex;
-  align-items: center;
+  flex-direction: column;
+  gap: 20px;
   justify-content: center;
+  align-items: center;
   height: 100vh;
 }
 
-.form {
+.app__title {
+  text-decoration: underline;
+}
+
+.shopping {
+  padding: 20px 50px;
+  background: wheat;
+  min-width: 50%;
+  min-height: 350px;
   display: flex;
   flex-direction: column;
-  gap:5px;
-  flex-basis: 350px;
-
-  border: 1px solid black;
-  border-radius: 10px;
-  padding: 30px;
+  gap: 20px;
+  border-radius: 6px;
 }
 
-.form > * {
-  padding: 5px;
+.shopping__header {
+  text-align: center;
 }
 
-.form > button {
-  border: none;
-  padding: 10px;
-  background-color: lightgrey;
-  margin-top: 20px;
+.shopping__add {
+  display: flex;
+  min-height: 30px;
+  gap: 5px;
+}
+.shopping__add > input {
+  flex: 1;
 }
 
-.form_input {
+.shopping__list > ul {
   display: flex;
   flex-direction: column;
-  gap:10px;
+  gap: 5px;
 }
 
-.form_input > input {
-  padding: 6px;
+.shopping__list--item {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 10px;
 }
 
-.input_error{
-  border: 1px solid red;
-}
-.input_success {
-  border:  1px solid green;
-}
-
-.text_error{
+.x__mark {
   color: red;
+  cursor: pointer;
 }
